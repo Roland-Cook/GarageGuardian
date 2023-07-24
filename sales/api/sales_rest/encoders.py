@@ -1,40 +1,46 @@
-from models import AutomobileVO, Salesperson, Customer, Sale
+from .models import AutomobileVO, Salesperson, Customer, Sale
+from common.json import ModelEncoder
 
 
-class AutomobileVOEncoder():
+class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = [
         "vin",
         "sold",
+        "id",
     ]
 
 
-class SalespersonEncoder():
+class SalespersonEncoder(ModelEncoder):
     model = Salesperson
     properties = [
         "first_name",
         "last_name",
-        "employee_id"
+        "employee_id",
+        "id",
     ]
 
 
-class CustomerEncoder():
+class CustomerEncoder(ModelEncoder):
     model = Customer
     properties = [
         "first_name",
         "last_name",
         "phone_number",
+        "id"
     ]
 
 
-class SaleEncoder():
+class SaleEncoder(ModelEncoder):
     model = Sale
     properties = [
         "automobile",
         "salesperson",
         "customer",
         "price",
+        "id",
     ]
     encoders = {
-        "automobile": AutomobileVOEncoder
+        "automobile": AutomobileVOEncoder,
+        "salesperson": SalespersonEncoder
     }
