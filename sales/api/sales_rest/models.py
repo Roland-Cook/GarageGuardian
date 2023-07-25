@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 
 # Create your models here.
@@ -6,6 +7,9 @@ from django.db import models
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=17)
     sold = models.BooleanField(default=False)
+
+    def get_api_url(self):
+        return reverse("api_automobilevo", kwargs={"vin": self.vin})
 
 
 class Salesperson(models.Model):

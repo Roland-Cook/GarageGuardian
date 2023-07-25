@@ -10,7 +10,7 @@ function App(props) {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/automobiles" element={<AutomobileList automobiles={props.automobiles} />} />
+          <Route path="/automobiles" element={<AutomobileList autos={props.autos} />} />
         </Routes>
       </div>
     </BrowserRouter>
