@@ -7,6 +7,7 @@ from .encoders import (
 from .models import Salesperson, AutomobileVO, Customer, Sale
 from django.http import JsonResponse
 import json
+# from ....inventory.api.inventory_rest.views import api_automobile
 # Create your views here.
 
 
@@ -51,9 +52,14 @@ def api_salesperson_detail(request, id):
             safe=False,
         )
     else:
-        count, _ = Salesperson.objects.filter(id=id).delete()
-        return JsonResponse({"deleted": count > 0})
-
+        try:
+            count, _ = Salesperson.objects.filter(id=id).delete()
+            return JsonResponse({"deleted": count > 0})
+        except Salesperson.DoesNotExist:
+            return JsonResponse(
+                {"message": "Salesperson not found"},
+                status=404
+            )
 
 @require_http_methods(["GET", "POST"])
 def api_list_customer(request):
@@ -81,22 +87,29 @@ def api_list_customer(request):
         except Customer.DoesNotExist:
             return JsonResponse(
                 {"message": "No known customer"},
-                status=400
+                status=404
             )
 
 
 @require_http_methods(["GET", "DELETE"])
 def api_customer_detail(request, id):
-    if request.method == "DELETE":
+    if request.method == "GET":
         salesperson = Customer.objects.get(id=id)
         return JsonResponse(
             salesperson,
             encoder=CustomerEncoder,
             safe=False,
+            status=400
         )
     else:
-        count, _ = Customer.objects.filter(id=id).delete()
-        return JsonResponse({"deleted": count > 0})
+        try:
+            count, _ = Customer.objects.filter(id=id).delete()
+            return JsonResponse({"deleted": count > 0})
+        except Customer.DoesNotExist:
+            return JsonResponse(
+                {"message": "No known customer"},
+                status=404
+            )
 
 
 @require_http_methods(["GET", "POST"])
@@ -114,34 +127,26 @@ def api_list_sales(request):
             )
     else:
         content = json.loads(request.body)
-        print(content)
         try:
-            print("Now we try")
             automobile_vin = content["automobile"]
-            print(automobile_vin)
             automobile = AutomobileVO.objects.get(vin=automobile_vin)
-            print(automobile)
             content["automobile"] = automobile
-            print(automobile_vin, automobile)
 
             salesperson_id = content["salesperson"]
-            print(salesperson_id)
             salesperson = Salesperson.objects.get(id=salesperson_id)
-            print(salesperson)
             content["salesperson"] = salesperson
 
             customer_id = content["customer"]
-            print(customer_id)
             customer = Customer.objects.get(id=customer_id)
-            print(customer)
             content["customer"] = customer
 
             sale = Sale.objects.create(**content)
-            print(sale)
 
             automobile.sold = True
-            print(automobile.sold)
             automobile.save()
+
+            # api_automobile(, vin)
+            # Tell it that the put is marking vehicle sold=true
 
             return JsonResponse(
                 sale,
