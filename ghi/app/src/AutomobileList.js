@@ -3,7 +3,7 @@ function AutomobileList(props) {
         return null
     }
 
-    console.log(props)
+    console.log(props, props.autos)
 
     return (
         <table className="table table-striped">
@@ -17,16 +17,18 @@ function AutomobileList(props) {
                 </tr>
             </thead>
             <tbody>
-                {/* {/* {props.autos.map(auto =>{
+                {props.autos.map(auto => {
                     return (
-                        <tr key={auto.id}>
-                            {/* <td>{ auto.model.manufacturer.name }</td> */}
-                            {/* <td>{ auto.model }</td> */}
-                            {/* <td>{ auto.year }</td> */}
-                            {/* <td>{ auto.color }</td> */}
-                            {/* <td>{ auto.vin }</td> */}
-                        {/* </tr> */}
-                    {/* ) */}
+                        <tr>
+                            <td>{ auto.model.manufacturer.name }</td>
+                            <td>{ auto.model.name }</td>
+                            <td>{ auto.year }</td>
+                            <td>{ auto.color }</td>
+                            <td>{ auto.vin }</td>
+                        </tr>
+                    )
+                })}
+                    
             </tbody>
         </table>
     )
