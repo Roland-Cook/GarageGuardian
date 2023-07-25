@@ -13,22 +13,22 @@ from django.views.decorators.http import require_http_methods
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin","sold"]
+    properties = ["vin","sold","id"]
 
 
 class TechnicianEncoder(ModelEncoder):
     model = Technician
-    properties = ["first_name","last_name","employee_id"]
+    properties = ["first_name","last_name","employee_id","id"]
 
 
 
 class AppointmentEncoder(ModelEncoder):
     model = Appointment
     properties = [
-        "date_time", "reason", "vin", "customer", "technician","status"
+        "date_time", "reason", "vin", "customer", "technician","id","status"
     ]
     def get_extra_data(self, o):
-        return { "technician": o.technician.first_name, "status":o.status.name}
+        return { "technician": o.technician.first_name,"status": o.status.name}
 
     encoders = {
         "technician": TechnicianEncoder()
@@ -77,14 +77,15 @@ def api_tech_detail(request, id):
 
 def api_appointments(request):
         if request.method == "GET":
-            appointment = Appointment.objects.all()
+            appointments = Appointment.objects.all()
             return JsonResponse(
-            {"appointment": appointment},
+            {"appointments":appointments},
             encoder=AppointmentEncoder,
+            safe=False
             )
         else:
             content = json.loads(request.body)
-
+            print(content)
             try:
                 technician = Technician.objects.get(first_name=content["technician"])
                 content["technician"] = technician
@@ -121,7 +122,18 @@ def api_appointment_details(request, id):
 def api_cancel(request,id):
     app = Appointment.objects.get(id=id)
     app.cancelled()
+    return JsonResponse(
+        app,
+        encoder=AppointmentEncoder,
+        safe=False,
+    )
 
 def api_finished(request,id):
     app = Appointment.objects.get(id=id)
     app.finished()
+    
+    return JsonResponse(
+        app,
+        encoder=AppointmentEncoder,
+        safe=False
+    )

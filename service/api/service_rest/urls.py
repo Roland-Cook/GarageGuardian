@@ -8,7 +8,4 @@ urlpatterns = [
     path("appointments/<int:id>",api_appointment_details, name="api_appointment_details"),
     path("appointments/<int:id>/cancel", api_cancel, name="api_cancel"),
     path("appointments/<int:id>/finish", api_finished, name="api_finish")
-
-    
-
 ]
