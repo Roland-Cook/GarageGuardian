@@ -17,6 +17,7 @@ class Salesperson(models.Model):
 class Customer(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
+    address = models.CharField(max_length=200, null=True)
     phone_number = models.CharField(max_length=200)
 
 

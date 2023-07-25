@@ -26,6 +26,7 @@ class CustomerEncoder(ModelEncoder):
     properties = [
         "first_name",
         "last_name",
+        "address",
         "phone_number",
         "id"
     ]
