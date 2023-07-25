@@ -2,7 +2,6 @@ from django.views.decorators.http import require_http_methods
 from .encoders import (
     SalespersonEncoder,
     CustomerEncoder,
-    AutomobileVOEncoder,
     SaleEncoder,
 )
 from .models import Salesperson, AutomobileVO, Customer, Sale
@@ -86,9 +85,9 @@ def api_list_customer(request):
             )
 
 
-@require_http_methods(["GET", "PUT", "DELETE"])
+@require_http_methods(["GET", "DELETE"])
 def api_customer_detail(request, id):
-    if request.method == "GET":
+    if request.method == "DELETE":
         salesperson = Customer.objects.get(id=id)
         return JsonResponse(
             salesperson,
@@ -115,18 +114,55 @@ def api_list_sales(request):
             )
     else:
         content = json.loads(request.body)
+        print(content)
         try:
+            print("Now we try")
+            automobile_vin = content["automobile"]
+            print(automobile_vin)
+            automobile = AutomobileVO.objects.get(vin=automobile_vin)
+            print(automobile)
+            content["automobile"] = automobile
+            print(automobile_vin, automobile)
+
+            salesperson_id = content["salesperson"]
+            print(salesperson_id)
+            salesperson = Salesperson.objects.get(id=salesperson_id)
+            print(salesperson)
+            content["salesperson"] = salesperson
+
+            customer_id = content["customer"]
+            print(customer_id)
+            customer = Customer.objects.get(id=customer_id)
+            print(customer)
+            content["customer"] = customer
 
             sale = Sale.objects.create(**content)
-            sale.save()
+            print(sale)
+
+            automobile.sold = True
+            print(automobile.sold)
+            automobile.save()
+
             return JsonResponse(
                 sale,
                 encoder=SaleEncoder,
                 safe=False,
             )
-        except Sale.DoesNotExist:
+        except AutomobileVO.DoesNotExist:
             return JsonResponse(
-                {"message": "No known Sale"},
+                {"message": "No known Automobile with VIN"},
+                status=400
+                )
+
+        except Salesperson.DoesNotExist:
+            return JsonResponse(
+                {"message": "No known salesperson"},
+                status=400
+            )
+
+        except Customer.DoesNotExist:
+            return JsonResponse(
+                {"message": "No known customer"},
                 status=400
             )
 
