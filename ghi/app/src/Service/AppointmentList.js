@@ -3,6 +3,38 @@ import { useEffect, useState } from "react";
 function AppointmentList() {
 
     const [appointments,setAppointments] = useState([])
+    const [automobiles,setAutomobiles] = useState([])
+    const [vip,setVip] = useState("no")
+
+
+    async function loadvip() {
+      let finalArray = []
+      appointments.map((app) => {
+      automobiles.map((auto) => {
+          if(app.vin === auto.vin){
+            finalArray.push(app.vin) 
+            console.log("Matching vins",finalArray)
+            setVip("Yes")
+          }
+          else {
+            setVip("No")
+          }      
+        });
+      });
+  }
+  
+  useEffect(() => {
+    loadvip();
+  }, []);
+
+    console.log(appointments)
+    console.log(automobiles)
+
+    useEffect(() => {
+      loadAppointments();
+  }, []);
+
+
 
     async function loadAppointments() {
         const response = await fetch('http://localhost:8080/api/appointments/');
@@ -12,14 +44,19 @@ function AppointmentList() {
         if (response.ok) {
           const data = await response.json();
           const data2 = await response2.json();
-          console.log(data2)
           setAppointments(data.appointments)
-        }
+          setAutomobiles(data2.autos)
     }
+  }
+
 
     useEffect(() => {
         loadAppointments();
     }, []);
+
+
+
+
 
 
     const handleFinish = async (appID) => {
@@ -76,11 +113,16 @@ function AppointmentList() {
                     <td>{app.time}</td>
                     <td>{app.reason}</td>
                     <td>{app.technician}</td>
+                    <td className="vip" >{vip}</td>
+                    <div>
                     <td>
                     <button className="btn btn-success" onClick={() => handleFinish(app.id)} >Finish</button>
                     </td>
-                    <td><button className="btn btn-danger" onClick={() => handleCancel(app.id)}>Cancel</button></td>
+                    <td><button className="btn btn-danger" onClick={() => handleCancel(app.id)}>Cancel</button>
+                    </td>
+                    </div>
                   </tr>
+                  
   
                 </>
                 );

@@ -25,9 +25,21 @@ function Nav() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/automobiles">Automobile</NavLink>
             </li>
+
+
             <li className="nav-item">
-              <NavLink className="nav-link" to="/automobiles/form">Add new Automobile</NavLink>
+            <NavLink className="nav-link" to="/technicians">Add Technician</NavLink>
             </li>
+            <li className="nav-item">
+            <NavLink className="nav-link" to="/technician_list">Technician List</NavLink>
+            </li>
+            <li className="nav-item">
+            <NavLink className="nav-link" to="/create_appointment">Appointment Form</NavLink>
+            </li>
+            <li className="nav-item">
+            <NavLink className="nav-link" to="/appointment_list">Appointment List</NavLink>
+            </li>
+
             <li className="nav-item">
               <NavLink className="nav-link" to="/salespeople">Salespeople</NavLink>
             </li>
@@ -48,18 +60,6 @@ function Nav() {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/sales/form">Sales Form</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink className="nav-link" to="/technicians">Add Technician</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink className="nav-link" to="/technician_list">Technician List</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink className="nav-link" to="/create_appointment">Appointment Form</NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink className="nav-link" to="/appointment_list">Appointment List</NavLink>
             </li>
           </ul>
         </div>
