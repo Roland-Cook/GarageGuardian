@@ -1,9 +1,20 @@
-function AutomobileList(props) {
-    if (props.autos === undefined) {
-        return null
+import React, {useEffect, useState} from "react";
+
+function AutomobileList() {
+    const [autos, setAutos] = useState([])
+
+    async function loadAutos() {
+        const response = await fetch('http://localhost:8100/api/automobiles/')
+
+        if (response.ok) {
+            const data = await response.json();
+            setAutos(data.autos)
+        }
     }
 
-    console.log(props, props.autos)
+    useEffect(() => {
+        loadAutos();
+    }, []);
 
     return (
         <table className="table table-striped">
@@ -17,9 +28,9 @@ function AutomobileList(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.autos.map(auto => {
+                {autos.map(auto => {
                     return (
-                        <tr>
+                        <tr key={auto.id}>
                             <td>{ auto.model.manufacturer.name }</td>
                             <td>{ auto.model.name }</td>
                             <td>{ auto.year }</td>
@@ -28,7 +39,6 @@ function AutomobileList(props) {
                         </tr>
                     )
                 })}
-                    
             </tbody>
         </table>
     )

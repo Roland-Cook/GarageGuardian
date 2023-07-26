@@ -49,6 +49,9 @@ class SaleEncoder(ModelEncoder):
 
     def get_extra_data(self, o):
         return {
-            "salesperson": o.salesperson.first_name,
-            "customer": o.customer.first_name
+            "salesperson_first": o.salesperson.first_name,
+            "salesperson_last": o.salesperson.last_name,
+            "customer_first": o.customer.first_name,
+            "customer_last": o.customer.last_name,
+            "employee_id": o.salesperson.employee_id
             }
