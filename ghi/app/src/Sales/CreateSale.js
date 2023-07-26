@@ -5,7 +5,7 @@ function CreateSalesForm(){
     const [autos, setAutomobiles] = useState([]);
     const [automobile, setAutomobile] = useState("");
     const [salespersons, setSalespersons] = useState([]);
-    const [salesperson, setSalesperson] = useState("");
+    const [salespeople, setSalesperson] = useState("");
     const [customers, setCustomers] = useState([])
     const [customer, setCustomer] = useState("");
     const [price, setPrice] = useState("");
@@ -29,7 +29,7 @@ function CreateSalesForm(){
         const response = await fetch(sUrl);
         if (response.ok) {
             const data = await response.json();
-            setSalespersons(data.salesperson)
+            setSalespersons(data.salespeople)
         } else {
             console.error('Error retrieving location data')
         }
@@ -40,7 +40,7 @@ function CreateSalesForm(){
         const response = await fetch(cUrl);
         if (response.ok) {
             const data = await response.json()
-            setCustomers(data.customer);
+            setCustomers(data.customers);
         } else {
             console.error('Error retrieving location data')
         }
@@ -72,7 +72,7 @@ function CreateSalesForm(){
         event.preventDefault();
         const data = {};
         data.automobile = automobile;
-        data.salesperson = salesperson;
+        data.salespeople = salespeople;
         data.customer = customer;
         data.price = price;
         
@@ -130,7 +130,7 @@ function CreateSalesForm(){
                     </select>
                 </div>
                 <div className="mb-3">
-                    <select onChange={handleSalesPersonChange} value={salesperson} name="salespersons" id="salespersons" className="form-select" required>
+                    <select onChange={handleSalesPersonChange} value={salespeople} name="salespeople" id="salespeople" className="form-select" required>
                         <option value="">Salesperson</option>
                         {salespersons.map(sperson=>{
                         return(

@@ -1,14 +1,14 @@
 import React, {useEffect, useState } from 'react';
 
 function CustomerList() {
-    const [customer, setCustomer] = useState([]);
+    const [customers, setCustomer] = useState([]);
     
     async function loadCustomer() {
         const response = await fetch('http://localhost:8090/api/customers/');
 
         if (response.ok) {
             const data = await response.json();
-            setCustomer(data.customer)
+            setCustomer(data.customers)
         }
     }
 
@@ -26,7 +26,7 @@ function CustomerList() {
                 </tr>
             </thead>
             <tbody>
-                {customer.map(person => {
+                {customers.map(person => {
                     return (
                         <tr key={person.id}>
                             <td>{ person.first_name } { person.last_name }</td>

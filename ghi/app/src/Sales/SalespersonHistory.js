@@ -1,9 +1,9 @@
 import React, {useEffect, useState } from 'react';
 
 function SalespersonHistory() {
-    const [sale, setSales] = useState([]);
+    const [sales, setSales] = useState([]);
     const [selectSalesperson, setSelectSalesperson] = useState("")
-    const [salesperson, setSalesTeam] = useState([])
+    const [salespeople, setSalesTeam] = useState([])
     
     async function loadSales() {
         const url = 'http://localhost:8090/api/sales/'
@@ -12,7 +12,8 @@ function SalespersonHistory() {
         
         if (response.ok) {
             const data = await response.json();
-            setSales(data.sale);
+            setSales(data.sales);
+            console.log(data)
         }
     }
 
@@ -28,7 +29,7 @@ function SalespersonHistory() {
         event.preventDefault();
     }
 
-    const uniqueSalespersonIds = Array.from(new Set(sale.map((sdata) => sdata.salesperson.id)));
+    const uniqueSalespersonIds = Array.from(new Set(sales.map((sdata) => sdata.salesperson.id)));
     
     return (
         <>
@@ -39,7 +40,7 @@ function SalespersonHistory() {
                     <select onChange={handleSalesPersonChange} name="sale" id="sale" className="form-select" required>
                         <option value="">All sales</option>
                         {uniqueSalespersonIds.map( (id) => {
-                            const salesperson = sale.find((sdata) => sdata.salesperson.id === id).salesperson;
+                            const salesperson = sales.find((sdata) => sdata.salesperson.id === id).salesperson;
                         return(
                             <option value={id} key={id}>{salesperson.first_name} {salesperson.last_name}</option>
                         )
@@ -59,7 +60,7 @@ function SalespersonHistory() {
                     </tr>
                 </thead>
                 <tbody>
-                    {sale.filter(obj => selectSalesperson ? obj.salesperson.id.toString() === selectSalesperson : obj).map(sdata => {
+                    {sales.filter(obj => selectSalesperson ? obj.salesperson.id.toString() === selectSalesperson : obj).map(sdata => {
                         return (
                             <tr key={sdata.id}>
                                 <td>{ sdata.salesperson.first_name } { sdata.salesperson.last_name }</td>

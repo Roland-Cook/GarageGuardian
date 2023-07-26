@@ -1,14 +1,14 @@
 import React, {useEffect, useState } from 'react';
 
 function SalespersonList() {
-    const [salesperson, setSalesperson] = useState([]);
+    const [salespeople, setSalesperson] = useState([]);
     
     async function loadSalesperson() {
         const response = await fetch('http://localhost:8090/api/salespeople/');
 
         if (response.ok) {
             const data = await response.json();
-            setSalesperson(data.salesperson)
+            setSalesperson(data.salespeople)
         }
     }
 
@@ -25,7 +25,7 @@ function SalespersonList() {
                 </tr>
             </thead>
             <tbody>
-                {salesperson.map(sperson => {
+                {salespeople.map(sperson => {
                     return (
                         <tr key={sperson.id}>
                             <td>{ sperson.first_name } {sperson.last_name}</td>

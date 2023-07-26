@@ -1,14 +1,14 @@
 import React, {useEffect, useState } from 'react';
 
 function SalesList() {
-    const [sale, setSales] = useState([]);
+    const [sales, setSales] = useState([]);
     
     async function loadSales() {
         const response = await fetch('http://localhost:8090/api/sales/');
 
         if (response.ok) {
             const data = await response.json();
-            setSales(data.sale)
+            setSales(data.sales)
         }
     }
 
@@ -28,7 +28,7 @@ function SalesList() {
                 </tr>
             </thead>
             <tbody>
-                {sale.map(sl => {
+                {sales.map(sl => {
                     return (
                         <tr key={sl.id}>
                             <td>{ sl.salesperson.employee_id }</td>
