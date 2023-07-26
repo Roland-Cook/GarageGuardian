@@ -7,19 +7,17 @@ from .encoders import (
 from .models import Salesperson, AutomobileVO, Customer, Sale
 from django.http import JsonResponse
 import json
-# from ....inventory.api.inventory_rest.views import api_automobile
-# Create your views here.
 
 
 @require_http_methods(["GET", "POST"])
 def api_list_salespeople(request):
-
     if request.method == "GET":
         try:
             salesperson = Salesperson.objects.all()
             return JsonResponse(
-                {"salesperson": salesperson},
-                encoder=SalespersonEncoder
+                {"salespeople": salesperson},
+                encoder=SalespersonEncoder,
+                status=200,
             )
         except Salesperson.DoesNotExist:
             return JsonResponse(
@@ -35,6 +33,7 @@ def api_list_salespeople(request):
                 salesperson,
                 encoder=SalespersonEncoder,
                 safe=False,
+                status=200,
             )
         except Salesperson.DoesNotExist:
             return JsonResponse(
@@ -52,10 +51,11 @@ def api_salesperson_detail(request, id):
                 salesperson,
                 encoder=SalespersonEncoder,
                 safe=False,
+                status=200,
             )
-        except Salesperson.DoesNotExist:
+        except Exception as e:
             return JsonResponse(
-                {"message": "No salesperson with this ID"},
+                {"message": e},
                 status=404
             )
     else:
@@ -68,19 +68,21 @@ def api_salesperson_detail(request, id):
                 status=404
             )
 
+
 @require_http_methods(["GET", "POST"])
 def api_list_customer(request):
     if request.method == "GET":
         try:
-            customer = Customer.objects.all()
+            customers = Customer.objects.all()
             return JsonResponse(
-                {"customer": customer},
-                encoder=CustomerEncoder
+                {"customers": customers},
+                encoder=CustomerEncoder,
+                status=200,
             )
         except Customer.DoesNotExist:
             return JsonResponse(
                 {"message": "Cannot find customer data"},
-                status=404
+                status=404,
             )
     else:
         content = json.loads(request.body)
@@ -91,6 +93,7 @@ def api_list_customer(request):
                 customer,
                 encoder=CustomerEncoder,
                 safe=False,
+                status=200,
             )
         except Customer.DoesNotExist:
             return JsonResponse(
@@ -108,6 +111,7 @@ def api_customer_detail(request, id):
                 customer,
                 encoder=CustomerEncoder,
                 safe=False,
+                status=200,
             )
         except Customer.DoesNotExist:
             return JsonResponse(
@@ -131,8 +135,9 @@ def api_list_sales(request):
         try:
             sale = Sale.objects.all()
             return JsonResponse(
-                {"sale": sale},
-                encoder=SaleEncoder
+                {"sales": sale},
+                encoder=SaleEncoder,
+                status=200,
             )
         except Sale.DoesNotExist:
             return JsonResponse(
@@ -156,16 +161,11 @@ def api_list_sales(request):
 
             sale = Sale.objects.create(**content)
 
-            automobile.sold = True
-            automobile.save()
-
-            # api_automobile(, vin)
-            # Tell it that the put is marking vehicle sold=true
-
             return JsonResponse(
                 sale,
                 encoder=SaleEncoder,
                 safe=False,
+                status=200,
             )
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
@@ -206,5 +206,6 @@ def api_sale_detail(request, id):
             return JsonResponse({"deleted": count > 0})
         except Sale.DoesNotExist:
             return JsonResponse(
-                {"message": "Cannot delete, no sale data matching this ID"}
+                {"message": "Cannot delete, no sale data matching this ID"},
+                status=400
             )

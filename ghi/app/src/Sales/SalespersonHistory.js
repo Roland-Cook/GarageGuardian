@@ -12,15 +12,7 @@ function SalespersonHistory() {
         
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             setSales(data.sale);
-            for (let sp of data) {
-                if (sp === salesperson && sp.id !== salesperson.id ) {
-                    salesperson.push(sp)
-                    console.log(salesperson)
-                }
-            }
-            
         }
     }
 

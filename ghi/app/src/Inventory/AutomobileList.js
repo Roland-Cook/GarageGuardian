@@ -28,7 +28,7 @@ function AutomobileList() {
                 </tr>
             </thead>
             <tbody>
-                {autos.filter(obj => obj.sold === false).map(auto => {
+                {autos.filter(obj => !obj.sold).map(auto => {
                     return (
                         <tr key={auto.id}>
                             <td>{ auto.model.manufacturer.name }</td>
