@@ -3,7 +3,6 @@ import React, {useEffect, useState } from 'react';
 function SalespersonHistory() {
     const [sales, setSales] = useState([]);
     const [selectSalesperson, setSelectSalesperson] = useState("")
-    const [salespeople, setSalesTeam] = useState([])
     
     async function loadSales() {
         const url = 'http://localhost:8090/api/sales/'

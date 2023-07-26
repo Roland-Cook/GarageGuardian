@@ -15,7 +15,7 @@ def api_list_salespeople(request):
         try:
             salesperson = Salesperson.objects.all()
             return JsonResponse(
-                {"salespeople": salesperson},
+                {"salesperson": salesperson},
                 encoder=SalespersonEncoder,
                 status=200,
             )
@@ -73,9 +73,9 @@ def api_salesperson_detail(request, id):
 def api_list_customer(request):
     if request.method == "GET":
         try:
-            customers = Customer.objects.all()
+            customer = Customer.objects.all()
             return JsonResponse(
-                {"customers": customers},
+                {"customer": customer},
                 encoder=CustomerEncoder,
                 status=200,
             )
@@ -147,6 +147,7 @@ def api_list_sales(request):
     else:
         content = json.loads(request.body)
         try:
+            print(content)
             automobile_vin = content["automobile"]
             automobile = AutomobileVO.objects.get(vin=automobile_vin)
             content["automobile"] = automobile
