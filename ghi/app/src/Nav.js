@@ -11,9 +11,20 @@ function Nav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
+              <NavLink className="nav-link" to="/manufacturers">Manufacturers</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/manufacturer/form">Add new Manufacturer</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/models">Models</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/models/form">Add new Model</NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/automobiles">Automobile</NavLink>
             </li>
-
 
 
             <li className="nav-item">
@@ -27,6 +38,28 @@ function Nav() {
             </li>
             <li className="nav-item">
             <NavLink className="nav-link" to="/appointment_list">Appointment List</NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/salespeople">Salespeople</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/salespeople/form">Add a Salesperson</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/saleshistory">Salesperson History</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/customers">Customers</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/customers/form">Add a Customer</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/sales">Sales</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/sales/form">Sales Form</NavLink>
             </li>
           </ul>
         </div>
