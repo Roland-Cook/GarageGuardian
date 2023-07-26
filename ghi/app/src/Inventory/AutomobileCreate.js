@@ -48,10 +48,9 @@ const handleSubmit = async (event) => {
         'Content-Type': 'application/json',
       },
     };
-    console.log(data)
+
 
     const response = await fetch(Url, fetchConfig);
-    console.log(response)
 
     if (response.ok) {
 
@@ -70,7 +69,6 @@ const fetchData = async () => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data)
       setModels(data.models)
       
     }

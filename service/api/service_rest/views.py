@@ -21,7 +21,6 @@ class TechnicianEncoder(ModelEncoder):
     properties = ["first_name","last_name","employee_id","id"]
 
 
-
 class AppointmentEncoder(ModelEncoder):
     model = Appointment
     properties = [
@@ -56,7 +55,7 @@ def api_technicians(request):
             )
         except Technician.DoesNotExist:
             return JsonResponse(
-            {"message": "Invalid technician"},
+            {"message": "Cannot Create Technician"},
             status=400,
             )
         
@@ -75,6 +74,7 @@ def api_tech_detail(request, id):
         return JsonResponse({"deleted": count > 0})
 
 
+@require_http_methods(["GET", "POST"])
 def api_appointments(request):
         if request.method == "GET":
             appointments = Appointment.objects.all()
@@ -85,13 +85,12 @@ def api_appointments(request):
             )
         else:
             content = json.loads(request.body)
-            print(content)
             try:
                 technician = Technician.objects.get(first_name=content["technician"])
                 content["technician"] = technician
-            except Appointment.DoesNotExist:
+            except Technician.DoesNotExist:
                 return JsonResponse(
-                {"message": "Invalid technician"},
+                {"message": "Cannot Create Technician"},
                 status=400,
                 )
 
@@ -101,7 +100,6 @@ def api_appointments(request):
             encoder=AppointmentEncoder,
             safe=False,
             )
-
 
 
 @require_http_methods(["GET", "DELETE"])
