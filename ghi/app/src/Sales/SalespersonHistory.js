@@ -3,18 +3,28 @@ import React, {useEffect, useState } from 'react';
 function SalespersonHistory() {
     const [sale, setSales] = useState([]);
     const [selectSalesperson, setSelectSalesperson] = useState("")
+    const [salesperson, setSalesTeam] = useState([])
     
     async function loadSales() {
         const url = 'http://localhost:8090/api/sales/'
         
-
         const response = await fetch(url);
-
+        
         if (response.ok) {
             const data = await response.json();
-            setSales(data.sale)
+            console.log(data)
+            setSales(data.sale);
+            for (let sp of data) {
+                if (sp === salesperson && sp.id !== salesperson.id ) {
+                    salesperson.push(sp)
+                    console.log(salesperson)
+                }
+            }
+            
         }
     }
+
+    // let salesTeam = []
 
     useEffect(() => {
         loadSales();
@@ -39,7 +49,7 @@ function SalespersonHistory() {
                 <div className="mb-3">
                     <select onChange={handleSalesPersonChange} name="sale" id="sale" className="form-select" required>
                         <option value="">All sales</option>
-                        {sale && sale.map(sdata=>{
+                        {sale.map(sdata=>{
                         return(
                             <option value={sdata.salesperson.id} key={sdata.salesperson.id}>{sdata.salesperson.first_name} {sdata.salesperson.last_name}</option>
                         )

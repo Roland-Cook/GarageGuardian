@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+
 function CreateSalesForm(){
     const [autos, setAutomobiles] = useState([]);
     const [automobile, setAutomobile] = useState("");
@@ -8,6 +9,9 @@ function CreateSalesForm(){
     const [customers, setCustomers] = useState([])
     const [customer, setCustomer] = useState("");
     const [price, setPrice] = useState("");
+
+    
+
 
     const fetchAutoData = async () => {
         const aUrl = 'http://localhost:8100/api/automobiles/'
@@ -71,7 +75,9 @@ function CreateSalesForm(){
         data.salesperson = salesperson;
         data.customer = customer;
         data.price = price;
-
+        
+        const data2 = {}
+        data2.sold = true
         const saleUrl = 'http://localhost:8090/api/sales/';
         const fetchConfig = {
             method: "post",
@@ -80,12 +86,24 @@ function CreateSalesForm(){
                 'Content-Type': 'application/json',
             }
         }
+        console.log(automobile)
+        const iUrl = `http://localhost:8100/api/automobiles/${automobile}/`
+        const fetchConfig2 = {
+            method: "put",
+            body: JSON.stringify(data2),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
         const response = await fetch(saleUrl, fetchConfig);
-        if (response.ok) {
+        const response2 = await fetch(iUrl, fetchConfig2)
+        if (response.ok && response2.ok) {
             setAutomobile('');
             setSalesperson('');
             setCustomer('');
             setPrice('');
+
+            
         } else {
             console.error('Error sending form')
         }
@@ -101,7 +119,7 @@ function CreateSalesForm(){
                 <div className="mb-3">
                     <select onChange={handleAutomobileChange} value={automobile} name="automobiles" id="automobiles" className="form-select" required>
                         <option value="">Automobile VIN</option>
-                        {autos.map(auto=>{
+                        {autos.filter(obj => obj.sold === false).map(auto=>{
                         return(
                             <option value={auto.vin} key={auto.vin}>
                                 {auto.vin}
