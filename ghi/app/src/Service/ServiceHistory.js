@@ -3,18 +3,19 @@ import React, {useEffect, useState } from 'react';
 function ServiceHistory() {
     const [appointments, setAppointment] = useState([]);
     const [vin, setVin] = useState("")
-    // const [vip, setVip] = useState("no")
+    const [automobiles,setAutomobiles] = useState([])
 
     
     async function loadAppointments() {
-        const url = 'http://localhost:8080/api/appointments/'
+        const response = await fetch('http://localhost:8080/api/appointments/')
+        const response2 = await fetch('http://localhost:8100/api/automobiles/')
         
-        const response = await fetch(url);
-
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
+            const data2 = await response2.json()
+
             setAppointment(data.appointments)
+            setAutomobiles(data2.autos)
         }
     }
 
@@ -22,23 +23,25 @@ function ServiceHistory() {
         loadAppointments();
     }, []);
 
-    console.log(appointments)
-
-    const handleVinChange = (event) => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
         const value = event.target.value;
-        setVin(value);
+        setVin(value)
     }
 
+    const inventory = automobiles.map(car => car.vin)
 
     return (
         <>
+        <form onSubmit={handleSubmit} >
         <div className="input-group mb-3">
         <div className="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">Vin</span>
+        <span class="input-group-text" id="inputGroup-sizing-default">Vin #</span>
         </div>
-        <input type="text" onChange={handleVinChange} value={vin} class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"/>
-        <button className="btn btn-primary" type="submit">Search</button>
+        <input type="text" class="form-control" onChange={handleSubmit}aria-label="Default" aria-describedby="inputGroup-sizing-default"/>
+        <button className="btn btn-primary" onClick={handleSubmit} >Show All</button>
         </div>
+        </form>
 
         <div>
             <table className="table table-striped">
@@ -55,7 +58,7 @@ function ServiceHistory() {
                     </tr>
                 </thead>
                 <tbody>
-            {appointments.filter(obj => vin ? obj.vin === vin : obj).map(appdata =>{
+            {appointments.filter(filter => vin ? filter.vin === vin : filter).map(appdata =>{
               return (
                 <>
                   <tr>
@@ -66,9 +69,8 @@ function ServiceHistory() {
                     <td>{appdata.reason}</td>
                     <td>{appdata.technician}</td>
                     <td>{appdata.status}</td>
-                    {/* <td className="vip" >{vip}</td> */}
-                  </tr>
-                
+                    <td className="vip">{inventory.includes(appdata.vin) ?  "yes" : "no"}</td>                  
+                    </tr>
                 </>
                 );
     })}

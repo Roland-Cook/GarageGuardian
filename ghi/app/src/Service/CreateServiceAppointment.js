@@ -55,9 +55,7 @@ const handleSubmit = async (event) => {
     data.technician = technician
     data.reason = reason
 
-    console.log(data)
-
-    const shoeUrl = `http://localhost:8080/api/appointments/`;
+    const Url = `http://localhost:8080/api/appointments/`;
     const fetchConfig = {
       method: "POST",
       body: JSON.stringify(data),
@@ -65,10 +63,8 @@ const handleSubmit = async (event) => {
         'Content-Type': 'application/json',
       },
     };
-    console.log(data)
 
-    const response = await fetch(shoeUrl, fetchConfig);
-    console.log(response)
+    const response = await fetch(Url, fetchConfig);
 
     if (response.ok) {
       setAutomobileVin('');
@@ -87,9 +83,7 @@ const fetchData = async () => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data)
       setTechnicians(data.technician)
-      
     }
   }
 

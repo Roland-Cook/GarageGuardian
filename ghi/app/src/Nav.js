@@ -62,6 +62,9 @@ function Nav() {
               <NavLink className="nav-link" to="/sales/form">Sales Form</NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/automobile/form">Automobile Form</NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/service_history">Service History</NavLink>
             </li>
           </ul>
