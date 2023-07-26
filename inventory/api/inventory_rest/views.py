@@ -21,8 +21,8 @@ def api_automobiles(request):
     else:
         try:
             content = json.loads(request.body)
-            model_id = content["model"]
-            model = VehicleModel.objects.get(id=model_id)
+            model_id = content["model_id"]
+            model = VehicleModel.objects.get(pk=model_id)
             content["model"] = model
             auto = Automobile.objects.create(**content)
             return JsonResponse(

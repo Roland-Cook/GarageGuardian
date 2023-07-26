@@ -38,7 +38,7 @@ const handleSubmit = async (event) => {
     data.year = year
     data.vin = vin
     data.color = color
-    data.model = model
+    data.model_id = model
 
     const Url = `http://localhost:8100/api/automobiles/`;
     const fetchConfig = {

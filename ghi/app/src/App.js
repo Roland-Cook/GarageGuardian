@@ -20,7 +20,7 @@ import CreateManufacturer from './Inventory/ManufacturerCreate';
 import CreateModelForm from './Inventory/ModelCreate';
 import CreateAutomobileForm from './Inventory/AutomobileCreate';
 
-function App(props) {
+function App() {
   return (
     
     <BrowserRouter>
@@ -47,9 +47,6 @@ function App(props) {
           <Route path="/service_history" element={<ServiceHistory />} />
           <Route path="/models/form" element={<CreateModelForm />} />
           <Route path="/automobile/form" element={<CreateAutomobileForm />} />
-
-
-
         </Routes>
       </div>
     </BrowserRouter>
