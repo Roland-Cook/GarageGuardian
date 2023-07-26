@@ -9,7 +9,6 @@ function ModelList() {
         if (response.ok) {
             const data = await response.json();
             setModels(data.models)
-            console.log(data)
         }
     }
 
@@ -32,7 +31,7 @@ function ModelList() {
                         <tr key={model.id}>
                             <td>{ model.name }</td>
                             <td>{ model.manufacturer.name }</td>
-                            <td><img src={ model.picture_url }/></td>
+                            <td><img alt="Unavailable" src={ model.picture_url }/></td>
                         </tr>
                     )
                 })}

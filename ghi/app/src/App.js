@@ -14,6 +14,7 @@ import TechnicianList from './Service/TechnicianList';
 import CreateAppointmentForm from './Service/CreateServiceAppointment';
 import AppointmentList from './Service/AppointmentList';
 import ModelList from './Inventory/ModelList';
+import ManufacturerList from './Inventory/ManufacturerList';
 
 function App(props) {
   return (
@@ -23,6 +24,7 @@ function App(props) {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/manufacturers" element={<ManufacturerList/>} />
           <Route path="/automobiles" element={<AutomobileList/>} />
           <Route path="/models" element={<ModelList/>} />
           <Route path="/salespeople" element={<SalespersonList />} />
