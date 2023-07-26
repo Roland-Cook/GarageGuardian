@@ -25,7 +25,7 @@ class TechnicianEncoder(ModelEncoder):
 class AppointmentEncoder(ModelEncoder):
     model = Appointment
     properties = [
-        "date_time", "reason", "vin", "customer", "technician","id","status"
+        "date","time","reason", "vin", "customer", "technician","id","status"
     ]
     def get_extra_data(self, o):
         return { "technician": o.technician.first_name,"status": o.status.name}
@@ -131,7 +131,6 @@ def api_cancel(request,id):
 def api_finished(request,id):
     app = Appointment.objects.get(id=id)
     app.finished()
-    
     return JsonResponse(
         app,
         encoder=AppointmentEncoder,

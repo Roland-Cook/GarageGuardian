@@ -27,14 +27,14 @@ class Appointment(models.Model):
 
     @classmethod
     def create(cls, **kwargs):
-        kwargs["status"] = Status.objects.get(name="SUBMITTED")
+        kwargs["status"] = Status.objects.get(name="pending")
         appointment = cls(**kwargs)
         appointment.save()
         return appointment 
 
 
-
-    date_time = models.DateField(blank=False)
+    date = models.DateField(blank=False, null=True)
+    time = models.TimeField(null=True)
     reason = models.TextField()
     vin = models.CharField(max_length=200)
     customer = models.CharField(max_length=200)
