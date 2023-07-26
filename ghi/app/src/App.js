@@ -15,6 +15,7 @@ import CreateAppointmentForm from './Service/CreateServiceAppointment';
 import AppointmentList from './Service/AppointmentList';
 import ModelList from './Inventory/ModelList';
 import ManufacturerList from './Inventory/ManufacturerList';
+import CreateManufacturer from './Inventory/ManufacturerCreate';
 
 function App(props) {
   return (
@@ -25,6 +26,7 @@ function App(props) {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/manufacturers" element={<ManufacturerList/>} />
+          <Route path="/manufacturers/form" element={<CreateManufacturer/>} />
           <Route path="/automobiles" element={<AutomobileList/>} />
           <Route path="/models" element={<ModelList/>} />
           <Route path="/salespeople" element={<SalespersonList />} />

@@ -24,7 +24,6 @@ function CreateSalespersonForm(){
         data.first_name = firstName;
         data.last_name = lastName;
         data.employee_id = employeeId;
-        console.log(data)
 
         const spUrl = 'http://localhost:8090/api/salespeople/';
         const fetchConfig = {
@@ -35,7 +34,6 @@ function CreateSalespersonForm(){
             }
         }
         const response = await fetch(spUrl, fetchConfig);
-        console.log(response)
         if (response.ok) {
             setFirstName('');
             setLastName('');

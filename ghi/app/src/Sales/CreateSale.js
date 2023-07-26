@@ -14,7 +14,6 @@ function CreateSalesForm(){
         const response = await fetch(aUrl);
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             setAutomobiles(data.autos);
         } else {
             console.error('Error retrieving location data')
@@ -26,7 +25,6 @@ function CreateSalesForm(){
         const response = await fetch(sUrl);
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             setSalespersons(data.salesperson)
         } else {
             console.error('Error retrieving location data')
@@ -38,7 +36,6 @@ function CreateSalesForm(){
         const response = await fetch(cUrl);
         if (response.ok) {
             const data = await response.json()
-            console.log(data)
             setCustomers(data.customer);
         } else {
             console.error('Error retrieving location data')
@@ -74,7 +71,6 @@ function CreateSalesForm(){
         data.salesperson = salesperson;
         data.customer = customer;
         data.price = price;
-        console.log(data)
 
         const saleUrl = 'http://localhost:8090/api/sales/';
         const fetchConfig = {
@@ -85,7 +81,6 @@ function CreateSalesForm(){
             }
         }
         const response = await fetch(saleUrl, fetchConfig);
-        console.log(response)
         if (response.ok) {
             setAutomobile('');
             setSalesperson('');
