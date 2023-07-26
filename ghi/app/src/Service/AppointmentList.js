@@ -4,30 +4,6 @@ function AppointmentList() {
 
     const [appointments,setAppointments] = useState([])
     const [automobiles,setAutomobiles] = useState([])
-    const [vip,setVip] = useState("no")
-
-
-    async function loadvip() {
-      let finalArray = []
-      appointments.map((app) => {
-      automobiles.map((auto) => {
-          if(app.vin === auto.vin){
-            finalArray.push("Yes") 
-            console.log("Matching vins", finalArray)
-            setVip("Yes")
-          }
-          else {
-          }      
-        });
-      });
-  }
-  
-  useEffect(() => {
-    loadvip();
-  },[]);
-
-    console.log(appointments)
-    console.log(automobiles)
 
 
     async function loadAppointments() {
@@ -48,40 +24,36 @@ function AppointmentList() {
         loadAppointments();
     }, []);
 
-
-
-
+    const inventory = automobiles.map(car => car.vin)
 
 
     const handleFinish = async (appID) => {
       const appUrl = `http://localhost:8080/api/appointments/${appID}/finish`
-      console.log(appUrl, appID)
+
       const fetchConfig = {
           method: "PUT",
       }
       const response = await fetch(appUrl, fetchConfig);
       if (response.ok) {
-        console.log("Status changed")
-      } else {
-          console.error('Failed to update')
+      } 
+      else {
       }
   }
 
   const handleCancel = async (appID) => {
     const appUrl = `http://localhost:8080/api/appointments/${appID}/cancel`
-    console.log(appUrl, appID)
     const fetchConfig = {
         method: "PUT",
     }
     const response = await fetch(appUrl, fetchConfig);
     if (response.ok) {
-      console.log("Status changed")
+
     } else {
-        console.error('Failed to update')
+
     }
 }
 
-  
+
     return (
       <>
           <table className='table table-striped'>
@@ -107,7 +79,7 @@ function AppointmentList() {
                     <td>{app.time}</td>
                     <td>{app.reason}</td>
                     <td>{app.technician}</td>
-                    <td className="vip" >{vip}</td>
+                    <td className="vip">{inventory.includes(app.vin) ?  "yes" : "no"}</td>
                     <div>
                     <td>
                     <button className="btn btn-success" onClick={() => handleFinish(app.id)} >Finish</button>

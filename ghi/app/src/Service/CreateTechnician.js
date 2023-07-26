@@ -27,7 +27,7 @@ function CreateTechnicianForm(){
         data.last_name = last_name
         data.employee_id = employee_id
 
-        const hatUrl = 'http://localhost:8080/api/technicians/';
+        const TechUrl = 'http://localhost:8080/api/technicians/';
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
@@ -35,14 +35,13 @@ function CreateTechnicianForm(){
                 'Content-Type': 'application/json',
             }
         }
-        const response = await fetch(hatUrl, fetchConfig);
-        console.log(response)
+        const response = await fetch(TechUrl, fetchConfig);
+
         if (response.ok) {
             setFirst_name('');
             setLast_Name('');
             setEmployee_id('');
         } else {
-            console.error('Error sending form')
         }
     }
 
@@ -77,7 +76,6 @@ function CreateTechnicianForm(){
         </div>
         </div>
     )
-
 }
 
 export default CreateTechnicianForm;
