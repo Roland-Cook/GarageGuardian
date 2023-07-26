@@ -9,9 +9,15 @@ import CreateSalespersonForm from './Sales/CreateSalesperson';
 import CreateCustomerForm from './Sales/CreateCustomer';
 import CreateSalesForm from './Sales/CreateSale';
 import SalespersonHistory from './Sales/SalespersonHistory';
+import AutomobileList from './AutomobileList';
+import CreateTechnicianForm from './Service/CreateTechnician';
+import TechnicianList from './Service/TechnicianList';
+import CreateAppointmentForm from './Service/CreateServiceAppointment';
+import AppointmentList from './Service/AppointmentList';
 
 function App(props) {
   return (
+    
     <BrowserRouter>
       <Nav />
       <div className="container">
@@ -25,6 +31,10 @@ function App(props) {
           <Route path="/sales" element={<SalesList />} />
           <Route path="/saleshistory" element={<SalespersonHistory />} />
           <Route path="/sales/form" element={<CreateSalesForm />} />
+          <Route path="/technicians" element={<CreateTechnicianForm />} />
+          <Route path="/technician_list" element={<TechnicianList />} />
+          <Route path="/create_appointment" element={<CreateAppointmentForm />} />
+          <Route path="/appointment_list" element={<AppointmentList />} />
         </Routes>
       </div>
     </BrowserRouter>
