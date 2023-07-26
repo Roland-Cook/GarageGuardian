@@ -13,6 +13,7 @@ import CreateTechnicianForm from './Service/CreateTechnician';
 import TechnicianList from './Service/TechnicianList';
 import CreateAppointmentForm from './Service/CreateServiceAppointment';
 import AppointmentList from './Service/AppointmentList';
+import ModelList from './Inventory/ModelList';
 
 function App(props) {
   return (
@@ -22,7 +23,8 @@ function App(props) {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/automobiles" element={<AutomobileList autos={props.autos} />} />
+          <Route path="/automobiles" element={<AutomobileList/>} />
+          <Route path="/models" element={<ModelList/>} />
           <Route path="/salespeople" element={<SalespersonList />} />
           <Route path="/salespeople/form" element={<CreateSalespersonForm />} />
           <Route path="/customers" element={<CustomerList />} />
