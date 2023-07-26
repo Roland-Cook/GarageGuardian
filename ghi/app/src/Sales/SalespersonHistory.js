@@ -24,8 +24,6 @@ function SalespersonHistory() {
         }
     }
 
-    // let salesTeam = []
-
     useEffect(() => {
         loadSales();
     }, []);
@@ -38,8 +36,7 @@ function SalespersonHistory() {
         event.preventDefault();
     }
 
-
-    
+    const uniqueSalespersonIds = Array.from(new Set(sale.map((sdata) => sdata.salesperson.id)));
     
     return (
         <>
@@ -49,9 +46,10 @@ function SalespersonHistory() {
                 <div className="mb-3">
                     <select onChange={handleSalesPersonChange} name="sale" id="sale" className="form-select" required>
                         <option value="">All sales</option>
-                        {sale.map(sdata=>{
+                        {uniqueSalespersonIds.map( (id) => {
+                            const salesperson = sale.find((sdata) => sdata.salesperson.id === id).salesperson;
                         return(
-                            <option value={sdata.salesperson.id} key={sdata.salesperson.id}>{sdata.salesperson.first_name} {sdata.salesperson.last_name}</option>
+                            <option value={id} key={id}>{salesperson.first_name} {salesperson.last_name}</option>
                         )
                         })}
                     </select>
