@@ -6,12 +6,13 @@ function AppointmentList() {
 
     async function loadAppointments() {
         const response = await fetch('http://localhost:8080/api/appointments/');
-        const respons2 = await fetch('http://localhost:8100/api/automobiles/')
-        console.log(respons2)
+        const response2 = await fetch('http://localhost:8100/api/automobiles/')
+
 
         if (response.ok) {
           const data = await response.json();
-          console.log(data)
+          const data2 = await response2.json();
+          console.log(data2)
           setAppointments(data.appointments)
         }
     }
@@ -19,6 +20,36 @@ function AppointmentList() {
     useEffect(() => {
         loadAppointments();
     }, []);
+
+
+    const handleFinish = async (appID) => {
+      const appUrl = `http://localhost:8080/api/appointments/${appID}/finish`
+      console.log(appUrl, appID)
+      const fetchConfig = {
+          method: "PUT",
+      }
+      const response = await fetch(appUrl, fetchConfig);
+      if (response.ok) {
+        console.log("Status changed")
+      } else {
+          console.error('Failed to update')
+      }
+  }
+
+  const handleCancel = async (appID) => {
+    const appUrl = `http://localhost:8080/api/appointments/${appID}/cancel`
+    console.log(appUrl, appID)
+    const fetchConfig = {
+        method: "PUT",
+    }
+    const response = await fetch(appUrl, fetchConfig);
+    if (response.ok) {
+      console.log("Status changed")
+    } else {
+        console.error('Failed to update')
+    }
+}
+
   
     return (
       <>
@@ -45,6 +76,10 @@ function AppointmentList() {
                     <td>{app.time}</td>
                     <td>{app.reason}</td>
                     <td>{app.technician}</td>
+                    <td>
+                    <button className="btn btn-success" onClick={() => handleFinish(app.id)} >Finish</button>
+                    </td>
+                    <td><button className="btn btn-danger" onClick={() => handleCancel(app.id)}>Cancel</button></td>
                   </tr>
   
                 </>
