@@ -1,16 +1,15 @@
 import React, {useEffect, useState } from 'react';
 
 function ServiceHistory() {
-    const [appointment, setAppointment] = useState([]);
+    const [appointments, setAppointment] = useState([]);
     const [vin, setVin] = useState("")
-    const [vip, setVip] = useState("no")
+    // const [vip, setVip] = useState("no")
 
     
     async function loadAppointments() {
         const url = 'http://localhost:8080/api/appointments/'
         
         const response = await fetch(url);
-        console.log(response)
 
         if (response.ok) {
             const data = await response.json();
@@ -22,6 +21,8 @@ function ServiceHistory() {
     useEffect(() => {
         loadAppointments();
     }, []);
+
+    console.log(appointments)
 
     const handleVinChange = (event) => {
         const value = event.target.value;
@@ -54,7 +55,7 @@ function ServiceHistory() {
                     </tr>
                 </thead>
                 <tbody>
-            {appointment.filter(obj => vin ? obj.appointments.object.vin === vin : obj).map(appdata =>{
+            {appointments.filter(obj => vin ? obj.vin === vin : obj).map(appdata =>{
               return (
                 <>
                   <tr>
@@ -65,7 +66,7 @@ function ServiceHistory() {
                     <td>{appdata.reason}</td>
                     <td>{appdata.technician}</td>
                     <td>{appdata.status}</td>
-                    <td className="vip" >{vip}</td>
+                    {/* <td className="vip" >{vip}</td> */}
                   </tr>
                 
                 </>
