@@ -9,7 +9,6 @@ import CreateSalespersonForm from './Sales/CreateSalesperson';
 import CreateCustomerForm from './Sales/CreateCustomer';
 import CreateSalesForm from './Sales/CreateSale';
 import SalespersonHistory from './Sales/SalespersonHistory';
-import AutomobileList from './AutomobileList';
 import CreateTechnicianForm from './Service/CreateTechnician';
 import TechnicianList from './Service/TechnicianList';
 import CreateAppointmentForm from './Service/CreateServiceAppointment';
