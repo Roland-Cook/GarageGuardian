@@ -9,11 +9,9 @@ function SalespersonHistory() {
         
 
         const response = await fetch(url);
-        console.log(response)
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             setSales(data.sale)
         }
     }
@@ -36,6 +34,7 @@ function SalespersonHistory() {
     return (
         <>
         <div>
+            <h1>Salesperson History</h1>
             <form onSelect={handleSelect} id="select-salesperson-form">
                 <div className="mb-3">
                     <select onChange={handleSalesPersonChange} name="sale" id="sale" className="form-select" required>

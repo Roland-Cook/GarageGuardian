@@ -30,7 +30,6 @@ function CreateCustomerForm(){
         data.last_name = lastName;
         data.address = address;
         data.phone_number = phoneNum
-        console.log(data)
 
         const spUrl = 'http://localhost:8090/api/customers/';
         const fetchConfig = {
