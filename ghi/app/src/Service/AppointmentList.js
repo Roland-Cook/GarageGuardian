@@ -12,12 +12,11 @@ function AppointmentList() {
       appointments.map((app) => {
       automobiles.map((auto) => {
           if(app.vin === auto.vin){
-            finalArray.push(app.vin) 
-            console.log("Matching vins",finalArray)
+            finalArray.push("Yes") 
+            console.log("Matching vins", finalArray)
             setVip("Yes")
           }
           else {
-            setVip("No")
           }      
         });
       });
@@ -25,15 +24,10 @@ function AppointmentList() {
   
   useEffect(() => {
     loadvip();
-  }, []);
+  },[]);
 
     console.log(appointments)
     console.log(automobiles)
-
-    useEffect(() => {
-      loadAppointments();
-  }, []);
-
 
 
     async function loadAppointments() {
