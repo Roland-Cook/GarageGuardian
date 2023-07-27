@@ -147,7 +147,6 @@ def api_list_sales(request):
     else:
         content = json.loads(request.body)
         try:
-            print(content)
             automobile_vin = content["automobile"]
             automobile = AutomobileVO.objects.get(vin=automobile_vin)
             content["automobile"] = automobile

@@ -86,7 +86,6 @@ function CreateSalesForm(){
                 'Content-Type': 'application/json',
             }
         }
-        console.log(automobile)
         const iUrl = `http://localhost:8100/api/automobiles/${automobile}/`
         const fetchConfig2 = {
             method: "put",
