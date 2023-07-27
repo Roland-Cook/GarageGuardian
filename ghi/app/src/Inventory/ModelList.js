@@ -17,7 +17,7 @@ function ModelList() {
     }, []);
 
     return (
-        <table className="table table-striped">
+        <table className="table table-dark table-striped table-hover">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -31,7 +31,7 @@ function ModelList() {
                         <tr key={model.id}>
                             <td>{ model.name }</td>
                             <td>{ model.manufacturer.name }</td>
-                            <td><img alt="Unavailable" src={ model.picture_url }/></td>
+                            <td><img className="list-image" alt="Unavailable" src={ model.picture_url }/></td>
                         </tr>
                     )
                 })}

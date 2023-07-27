@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
-import Nav from './Nav';
+import NewNav from './Nav';
 import AutomobileList from './Inventory/AutomobileList';
 import SalespersonList from './Sales/SalespersonList';
 import CustomerList from './Sales/CustomerList';
@@ -24,7 +24,7 @@ function App() {
   return (
     
     <BrowserRouter>
-      <Nav />
+      <NewNav />
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />

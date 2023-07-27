@@ -36,7 +36,7 @@ function SalespersonHistory() {
             <form onSelect={handleSelect} id="select-salesperson-form">
                 <div className="mb-3">
                     <select onChange={handleSalesPersonChange} name="sale" id="sale" className="form-select" required>
-                        <option value="">All sales</option>
+                        <option value="">Select a salesperson</option>
                         {uniqueSalespersonIds.map( (id) => {
                             const salesperson = sales.find((sdata) => sdata.salesperson.id === id).salesperson;
                         return(
@@ -48,7 +48,7 @@ function SalespersonHistory() {
             </form>
         </div>
         <div>
-            <table className="table table-striped">
+            <table className="table table-dark table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Salesperson</th>
@@ -58,7 +58,7 @@ function SalespersonHistory() {
                     </tr>
                 </thead>
                 <tbody>
-                    {sales.filter(obj => selectSalesperson ? obj.salesperson.id.toString() === selectSalesperson : obj).map(sdata => {
+                    {sales.filter(obj => selectSalesperson ? obj.salesperson.id.toString() === selectSalesperson : null).map(sdata => {
                         return (
                             <tr key={sdata.id}>
                                 <td>{ sdata.salesperson.first_name } { sdata.salesperson.last_name }</td>

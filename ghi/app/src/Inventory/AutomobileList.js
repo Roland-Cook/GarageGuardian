@@ -17,7 +17,9 @@ function AutomobileList() {
     }, []);
 
     return (
-        <table className="table table-striped">
+        <>
+        <h1>Inventory</h1>
+        <table className="table table-dark table-striped table-hover">
             <thead>
                 <tr>
                     <th>Manufacturer</th>
@@ -41,6 +43,7 @@ function AutomobileList() {
                 })}
             </tbody>
         </table>
+        </>
     )
 }
 

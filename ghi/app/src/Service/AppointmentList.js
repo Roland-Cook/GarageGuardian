@@ -56,7 +56,7 @@ function AppointmentList() {
 
     return (
       <>
-          <table className='table table-striped'>
+          <table className='table table-dark table-striped table-hover'>
             <thead>
               <tr>
                 <th>Vin Number</th>
@@ -66,6 +66,7 @@ function AppointmentList() {
                 <th>Reason</th>
                 <th>Technician</th>
                 <th>is VIP?</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>

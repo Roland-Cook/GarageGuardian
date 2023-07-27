@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function CreateSalespersonForm(){
     const [firstName, setFirstName] = useState("");
