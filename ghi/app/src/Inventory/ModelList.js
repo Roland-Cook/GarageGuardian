@@ -17,6 +17,8 @@ function ModelList() {
     }, []);
 
     return (
+        <>
+        <h1>Models</h1>
         <table className="table table-dark table-striped table-hover">
             <thead>
                 <tr>
@@ -37,6 +39,7 @@ function ModelList() {
                 })}
             </tbody>
         </table>
+        </>
     )
 }
 

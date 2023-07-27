@@ -19,6 +19,7 @@ function TechnicianList() {
   
     return (
       <>
+          <h1>Technicians</h1>
           <table className='table table-dark table-striped table-hover'>
             <thead>
               <tr>

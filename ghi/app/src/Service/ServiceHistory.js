@@ -33,6 +33,7 @@ function ServiceHistory() {
 
     return (
         <>
+        <h1>Service History</h1>
         <form onSubmit={handleSubmit} >
         <div className="input-group mb-3">
         <div className="input-group-prepend">
