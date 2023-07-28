@@ -6,7 +6,7 @@ Team:
 * Nick R. -  Sales Team
 
 ## Design
-
+When using this application please note that the VIN number has a max length of 17 characters. 
 
 ## Service microservice
 
