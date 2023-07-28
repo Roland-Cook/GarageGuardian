@@ -11,7 +11,6 @@ function CreateModelForm(){
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             setManufacturers(data.manufacturers)
         } else {
             console.error('Error retrieving location data')
@@ -45,8 +44,6 @@ function CreateModelForm(){
         data.picture_url = pictureUrl;
         data.manufacturer_id = manufacturer
 
-        console.log(data)
-
         const hatUrl = 'http://localhost:8100/api/models/';
         const fetchConfig = {
             method: "post",
@@ -56,7 +53,6 @@ function CreateModelForm(){
             }
         }
         const response = await fetch(hatUrl, fetchConfig);
-        console.log(response)
         if (response.ok) {
             setModelName('');
             setPictureUrl('');

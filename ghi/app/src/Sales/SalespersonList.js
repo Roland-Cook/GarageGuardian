@@ -19,7 +19,7 @@ function SalespersonList() {
     return (
         <>
         <h1>Salespeople</h1>
-        <table className="table table-dark table-striped table-hover">
+        <table className="table table-dark table-striped table-hover border border-success border-3">
             <thead>
                 <tr>
                     <th>Name</th>
