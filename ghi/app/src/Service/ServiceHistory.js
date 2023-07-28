@@ -35,13 +35,13 @@ function ServiceHistory() {
         <>
         <h1>Service History</h1>
         <form onSubmit={handleSubmit} >
-        <div className="input-group mb-3">
-        <div className="input-group-prepend">
-        <span className="input-group-text" id="inputGroup-sizing-default">Vin #</span>
-        </div>
-        <input type="text" className="form-control" onChange={handleSubmit}aria-label="Default" aria-describedby="inputGroup-sizing-default"/>
-        <button className="btn btn-success" onClick={handleSubmit} >Show All</button>
-        </div>
+            <div className="input-group mb-3">
+            <div className="input-group-prepend">
+            <span className="input-group-text" id="inputGroup-sizing-default">Vin #</span>
+            </div>
+            <input type="text" className="form-control" onChange={handleSubmit}aria-label="Default" aria-describedby="inputGroup-sizing-default"/>
+            <button className="btn btn-success" onClick={handleSubmit} >Show All</button>
+            </div>
         </form>
 
         <div>

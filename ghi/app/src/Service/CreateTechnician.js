@@ -52,18 +52,21 @@ function CreateTechnicianForm(){
             <div className="shadow p-4 mt-4">
             <h1 className="card-title">Add Technician</h1>
                 <form onSubmit={handleSubmit} id="create-technician-form">
+                    
                 <div className="col">
                     <div className="form-floating mb-3">
                     <input required onChange={handleFirstNameChange} value={first_name} placeholder="First Name" type="text" id="first_name" name="first_name" className="form-control" />
                     <label htmlFor="hat_style">First Name</label>
                     </div>
                 </div>
+
                 <div className="col">
                     <div className="form-floating mb-3">
                     <input required onChange={handleLastNameChange} value={last_name} placeholder="Last Name" type="text" id="last_name" name="last_name" className="form-control" />
                     <label htmlFor="fabric">Last Name</label>
                     </div>
                 </div>
+
                 <div className="col">
                     <div className="form-floating mb-3">
                     <input required onChange={handleEmployeeChange} value={employee_id} placeholder="Employee ID" type="text" id="employee_id" name="employee_id" className="form-control" />
@@ -72,6 +75,7 @@ function CreateTechnicianForm(){
                 </div>
                 <button className="btn btn-primary">Add Technician</button>
                 </form>
+                
             </div>
         </div>
         </div>

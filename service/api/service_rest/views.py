@@ -90,7 +90,7 @@ def api_appointments(request):
                 content["technician"] = technician
             except Technician.DoesNotExist:
                 return JsonResponse(
-                {"message": "Cannot Create Technician"},
+                {"message": "Cannot Create Appointment"},
                 status=400,
                 )
 

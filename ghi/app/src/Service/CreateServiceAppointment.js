@@ -102,22 +102,27 @@ return (
             <input onChange={handleVinChange} value={automobileVin} placeholder="Vin Number"  name={automobileVin} id="automobileVin" className="form-control"/>
             <label htmlFor="name">Automobile Vin</label>
           </div>
+          
           <div className="form-floating mb-3">
             <input onChange={handleCustomerChange} value={customer} placeholder="customer" name={customer} id="customer" className="form-control"/>
             <label htmlFor="manufacturer">Customer</label>
           </div>
+
           <div className="form-floating mb-3">
             <input type="date" onChange={handleDateTimeChange} value={date} placeholder="date" name={date} id="datetime" className="form-control"/>
             <label htmlFor="date">Date</label>
           </div>
+
           <div className="form-floating mb-3">
             <input type="time" onChange={handleTimeChange} value={time} placeholder="date" name={time} id="time" className="form-control"/>
             <label htmlFor="time">Time</label>
           </div>
+
           <div className="form-floating mb-3">
             <input onChange={handleReasonChange} value={reason} placeholder="Reason" required name={reason} id="reason" className="form-control"/>
             <label htmlFor="picture_url">Reason </label>
           </div>
+
           <div className="mb-3">
             <select onChange={handleTechnicianChange} name={technician} value={technician} id="technician" className="form-select">
             <option >Choose a Technician</option>
