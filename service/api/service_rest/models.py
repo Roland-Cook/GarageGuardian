@@ -27,7 +27,7 @@ class Appointment(models.Model):
 
     @classmethod
     def create(cls, **kwargs):
-        kwargs["status"] = Status.objects.get(name="pending")
+        kwargs["status"] = Status.objects.get(name="submitted")
         appointment = cls(**kwargs)
         appointment.save()
         return appointment 
