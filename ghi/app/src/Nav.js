@@ -15,75 +15,51 @@ function NewNav() {
         </Navbar.Brand>
         <Nav className="me-auto">
           <NavDropdown title="Inventory" id="basic-nav-dropdown">
-            <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/manufacturers">
+            <NavDropdown.Item className="dropdown-item" to="/manufacturers">
                 Manufacturers
-              </NavLink>
             </NavDropdown.Item>
-            <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/manufacturers/form">
+            <NavDropdown.Item className="dropdown-item" to="/manufacturers/form">
                 Add new Manufacturer
-              </NavLink>
             </NavDropdown.Item>
-            <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/models">
+            <NavDropdown.Item className="dropdown-item" to="/models">
                 Models
-              </NavLink>
             </NavDropdown.Item>
-            <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/models/form">
+            <NavDropdown.Item className="dropdown-item" to="/models/form">
                 Add new Model
-              </NavLink>
             </NavDropdown.Item>
-            <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/automobiles">
+            <NavDropdown.Item className="dropdown-item" to="/automobiles">
                 Automobile Inventory
-              </NavLink>
             </NavDropdown.Item>
-            <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/automobile/form">
-                Automobile Form
-              </NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/automobile/form">
+                Automobile Form1
             </NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Sales Team" id="basic-nav-dropdown">
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/salespeople">Salespeople</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/salespeople">Salespeople
             </NavDropdown.Item>
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/salespeople/form">Add a Salesperson</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/salespeople/form">Add a Salesperson
             </NavDropdown.Item>
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/customers">Customers</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/customers">Customers
             </NavDropdown.Item>
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/customers/form">Add a Customer</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/customers/form">Add a Customer
             </NavDropdown.Item>
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/sales">Sales</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/sales">Sales
             </NavDropdown.Item>
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/sales/form">Sales Form</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/sales/form">Sales Form
             </NavDropdown.Item>
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/saleshistory">Salesperson History</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/saleshistory">Salesperson History
             </NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Service Team" id="basic-nav-dropdown">
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/technician_list">Technician List</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/technician_list">Technician List
             </NavDropdown.Item>
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/technicians">Add Technician</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/technicians">Add Technician
             </NavDropdown.Item>
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/appointment_list">Appointment List</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/appointment_list">Appointment List
             </NavDropdown.Item>
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/create_appointment">Appointment Form</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/create_appointment">Appointment Form
             </NavDropdown.Item>
-            <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/service_history">Service History</NavLink>
+            <NavDropdown.Item className="dropdown-item" to="/service_history">Service History
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>
