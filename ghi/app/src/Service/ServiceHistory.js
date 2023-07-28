@@ -45,7 +45,7 @@ function ServiceHistory() {
         </form>
 
         <div>
-            <table className="table table-dark table-striped table-hover">
+            <table className="table table-dark table-striped table-hover border border-success border-3">
                 <thead>
                     <tr>
                     <th>Vin Number</th>
