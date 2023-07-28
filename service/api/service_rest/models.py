@@ -31,8 +31,9 @@ class Appointment(models.Model):
         appointment = cls(**kwargs)
         appointment.save()
         return appointment 
+    
 
-
+    
     date = models.DateField(blank=False, null=True)
     time = models.TimeField(null=True)
     reason = models.TextField()
