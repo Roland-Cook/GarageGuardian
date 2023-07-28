@@ -33,11 +33,11 @@ class Appointment(models.Model):
         return appointment 
     
 
-    
+
     date = models.DateField(blank=False, null=True)
     time = models.TimeField(null=True)
     reason = models.TextField()
-    vin = models.CharField(max_length=200)
+    vin = models.CharField(max_length=17)
     customer = models.CharField(max_length=200)
     
     technician = models.ForeignKey(
