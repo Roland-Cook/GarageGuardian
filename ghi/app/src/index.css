@@ -42,3 +42,7 @@ h1 {
 p {
   color: white;
 }
+
+.dropdown-item:hover, .dropdown-item.active{
+  background-color: #198754;
+}

@@ -21,7 +21,7 @@ function AppointmentList() {
 
 
     useEffect(() => {
-        loadAppointments();
+      loadAppointments();
     }, []);
 
     const inventory = automobiles.map(car => car.vin)
@@ -74,7 +74,7 @@ function AppointmentList() {
             {appointments.map(app  => {
               return (
                 <>
-                  <tr>
+                  <tr key={app.id}>
                     <td>{app.vin}</td>
                     <td>{app.customer}</td>
                     <td>{app.date}</td>
@@ -83,11 +83,11 @@ function AppointmentList() {
                     <td>{app.technician}</td>
                     <td className="vip">{inventory.includes(app.vin) ?  "yes" : "no"}</td>
                     <div>
-                    <td>
-                    <button className="btn btn-success" onClick={() => handleFinish(app.id)} >Finish</button>
-                    </td>
-                    <td><button className="btn btn-danger" onClick={() => handleCancel(app.id)}>Cancel</button>
-                    </td>
+                      <td>
+                      <button className="btn btn-success" onClick={() => handleFinish(app.id)} >Finish</button>
+                      </td>
+                      <td><button className="btn btn-danger" onClick={() => handleCancel(app.id)}>Cancel</button>
+                      </td>
                     </div>
                   </tr>
                   

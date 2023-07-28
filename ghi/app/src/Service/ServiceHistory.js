@@ -37,10 +37,10 @@ function ServiceHistory() {
         <form onSubmit={handleSubmit} >
         <div className="input-group mb-3">
         <div className="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Vin #</span>
+        <span className="input-group-text" id="inputGroup-sizing-default">Vin #</span>
         </div>
-        <input type="text" class="form-control" onChange={handleSubmit}aria-label="Default" aria-describedby="inputGroup-sizing-default"/>
-        <button className="btn btn-primary" onClick={handleSubmit} >Show All</button>
+        <input type="text" className="form-control" onChange={handleSubmit}aria-label="Default" aria-describedby="inputGroup-sizing-default"/>
+        <button className="btn btn-success" onClick={handleSubmit} >Show All</button>
         </div>
         </form>
 
@@ -48,30 +48,30 @@ function ServiceHistory() {
             <table className="table table-dark table-striped table-hover border border-success border-3">
                 <thead>
                     <tr>
-                    <th>Vin Number</th>
-                    <th>Customer</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Reason</th>
-                    <th>Technician</th>
-                    <th>Status</th>
-                    <th>is VIP?</th>
+                        <th>Vin Number</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Reason</th>
+                        <th>Technician</th>
+                        <th>Status</th>
+                        <th>is VIP?</th>
                     </tr>
                 </thead>
                 <tbody>
             {appointments.filter(filter => vin ? filter.vin === vin : filter).map(appdata =>{
               return (
                 <>
-                  <tr>
+                  <tr key={appdata.id}>
                     <td>{appdata.vin}</td>
-                    <td>{appdata.customer}</td>
+                    <td >{appdata.customer}</td>
                     <td>{appdata.date}</td>
                     <td>{appdata.time}</td>
                     <td>{appdata.reason}</td>
                     <td>{appdata.technician}</td>
                     <td>{appdata.status}</td>
                     <td className="vip">{inventory.includes(appdata.vin) ?  "yes" : "no"}</td>                  
-                    </tr>
+                </tr>
                 </>
                 );
     })}

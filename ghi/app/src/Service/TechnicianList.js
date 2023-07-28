@@ -32,10 +32,10 @@ function TechnicianList() {
             {technician.map(tech  => {
               return (
                 <>
-                  <tr>
-                    <td>{tech.employee_id}</td>
-                    <td>{tech.first_name}</td>
-                    <td>{tech.last_name}</td>
+                  <tr key={tech.id}>
+                    <td key={tech.employee_id}>{tech.employee_id}</td>
+                    <td key={tech.first_name}>{tech.first_name}</td>
+                    <td key={tech.last_name} >{tech.last_name}</td>
                   </tr>
   
                 </>
