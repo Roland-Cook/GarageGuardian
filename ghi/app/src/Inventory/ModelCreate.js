@@ -44,7 +44,7 @@ function CreateModelForm(){
         data.picture_url = pictureUrl;
         data.manufacturer_id = manufacturer
 
-        const hatUrl = 'http://localhost:8100/api/models/';
+        const modelsUrl = 'http://localhost:8100/api/models/';
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
@@ -52,7 +52,7 @@ function CreateModelForm(){
                 'Content-Type': 'application/json',
             }
         }
-        const response = await fetch(hatUrl, fetchConfig);
+        const response = await fetch(modelsUrl, fetchConfig);
         if (response.ok) {
             setModelName('');
             setPictureUrl('');
