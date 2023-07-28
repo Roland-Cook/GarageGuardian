@@ -116,7 +116,7 @@ def api_appointment_details(request, id):
         return JsonResponse({"deleted": count > 0})
 
 
-
+@require_http_methods(["PUT"])
 def api_cancel(request,id):
     app = Appointment.objects.get(id=id)
     app.cancelled()
@@ -126,6 +126,8 @@ def api_cancel(request,id):
         safe=False,
     )
 
+
+@require_http_methods(["PUT"])
 def api_finished(request,id):
     app = Appointment.objects.get(id=id)
     app.finished()
