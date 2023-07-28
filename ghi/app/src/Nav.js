@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink } from "react-router-dom";
+import carcarmicrologo from "./Logos/carcarmicrologo.png"
 
 function NewNav() {
   return (
@@ -10,43 +11,31 @@ function NewNav() {
       <Container>
         <Navbar.Brand>
           <NavLink className="navbar-brand" to="/">
-            CarCar
+            <img src={carcarmicrologo} alt="CarCar" />
           </NavLink>
         </Navbar.Brand>
         <Nav className="me-auto">
-          <NavDropdown title="Inventory" id="basic-nav-dropdown">
+          <NavDropdown className="navbar navbar-expand-lg navbar-dark bg-success" title="Inventory" id="basic-nav-dropdown">
             <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/manufacturers">
-                Manufacturers
-              </NavLink>
+              <NavLink className="dropdown-item" to="/manufacturers">Manufacturers</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/manufacturers/form">
-                Add new Manufacturer
-              </NavLink>
+              <NavLink className="dropdown-item" to="/manufacturers/form">Add new Manufacturer</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/models">
-                Models
-              </NavLink>
+              <NavLink className="dropdown-item" to="/models">Models</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/models/form">
-                Add new Model
-              </NavLink>
+              <NavLink className="dropdown-item" to="/models/form">Add new Model</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/automobiles">
-                Automobile Inventory
-              </NavLink>
+              <NavLink className="dropdown-item" to="/automobiles">Automobile Inventory</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <NavLink className="dropdown-item" to="/automobile/form">
-                Automobile Form
-              </NavLink>
+              <NavLink className="dropdown-item" to="/automobile/form">Automobile Form</NavLink>
             </NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="Sales Team" id="basic-nav-dropdown">
+          <NavDropdown className="navbar navbar-expand-lg navbar-dark bg-success" title="Sales Team" id="basic-nav-dropdown">
             <NavDropdown.Item>
             <NavLink className="dropdown-item" to="/salespeople">Salespeople</NavLink>
             </NavDropdown.Item>
@@ -69,7 +58,7 @@ function NewNav() {
             <NavLink className="dropdown-item" to="/saleshistory">Salesperson History</NavLink>
             </NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="Service Team" id="basic-nav-dropdown">
+          <NavDropdown className="navbar navbar-expand-lg navbar-dark bg-success" title="Service Team" id="basic-nav-dropdown">
             <NavDropdown.Item>
             <NavLink className="dropdown-item" to="/technician_list">Technician List</NavLink>
             </NavDropdown.Item>
