@@ -20,7 +20,7 @@ function NewNav() {
               <NavLink className="dropdown-item" to="/manufacturers">Manufacturers</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <NavLink className="dropdown-item bg-success" to="/manufacturers/form">Add new Manufacturer</NavLink>
+              <NavLink className="dropdown-item" to="/manufacturers/form">Add new Manufacturer</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item >
               <NavLink className="dropdown-item " to="/models">Models</NavLink>
