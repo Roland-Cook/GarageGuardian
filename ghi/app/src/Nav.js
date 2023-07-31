@@ -20,13 +20,13 @@ function NewNav() {
               <NavLink className="dropdown-item" to="/manufacturers">Manufacturers</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <NavLink className="dropdown-item bg-success" to="/manufacturers/form">Add new Manufacturer</NavLink>
+              <NavLink className="dropdown-item" to="/manufacturer/form">Add new Manufacturer</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item >
               <NavLink className="dropdown-item " to="/models">Models</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item >
-              <NavLink className="dropdown-item" to="/models/form">Add new Model</NavLink>
+              <NavLink className="dropdown-item" to="/model/form">Add new Model</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
               <NavLink className="dropdown-item" to="/automobiles">Automobile Inventory</NavLink>
@@ -40,19 +40,19 @@ function NewNav() {
             <NavLink className="dropdown-item" to="/salespeople">Salespeople</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
-            <NavLink className="dropdown-item" to="/salespeople/form">Add a Salesperson</NavLink>
+            <NavLink className="dropdown-item" to="/salespeoples/form">Add a Salesperson</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item >
             <NavLink className="dropdown-item " to="/customers">Customers</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item >
-            <NavLink className="dropdown-item" to="/customers/form">Add a Customer</NavLink>
+            <NavLink className="dropdown-item" to="/customer/form">Add a Customer</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
             <NavLink className="dropdown-item" to="/sales">Sales</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item >
-            <NavLink className="dropdown-item" to="/sales/form">Sales Form</NavLink>
+            <NavLink className="dropdown-item" to="/sale/form">Sales Form</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
             <NavLink className="dropdown-item" to="/saleshistory">Salesperson History</NavLink>

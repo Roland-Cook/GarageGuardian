@@ -29,23 +29,23 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/manufacturers" element={<ManufacturerList/>} />
-          <Route path="/manufacturers/form" element={<CreateManufacturer/>} />
+          <Route path="/manufacturer/form" element={<CreateManufacturer/>} />
           <Route path="/automobiles" element={<AutomobileList/>} />
           <Route path="/models" element={<ModelList/>} />
           <Route path="/salespeople" element={<SalespersonList />} />
-          <Route path="/salespeople/form" element={<CreateSalespersonForm />} />
+          <Route path="/salespeoples/form" element={<CreateSalespersonForm />} />
           <Route path="/customers" element={<CustomerList />} />
-          <Route path="/customers/form" element={<CreateCustomerForm />} />
+          <Route path="/customer/form" element={<CreateCustomerForm />} />
           <Route path="/sales" element={<SalesList />} />
           <Route path="/saleshistory" element={<SalespersonHistory />} />
-          <Route path="/sales/form" element={<CreateSalesForm />} />
+          <Route path="/sale/form" element={<CreateSalesForm />} />
           <Route path="/technicians" element={<CreateTechnicianForm />} />
           <Route path="/technician_list" element={<TechnicianList />} />
           <Route path="/create_appointment" element={<CreateAppointmentForm />} />
           <Route path="/appointment_list" element={<AppointmentList />} />
           <Route path="/service_history" element={<ServiceHistory />} />
           <Route path="/service_history" element={<ServiceHistory />} />
-          <Route path="/models/form" element={<CreateModelForm />} />
+          <Route path="/model/form" element={<CreateModelForm />} />
           <Route path="/automobile/form" element={<CreateAutomobileForm />} />
         </Routes>
       </div>
