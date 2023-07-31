@@ -20,11 +20,7 @@ function NewNav() {
               <NavLink className="dropdown-item" to="/manufacturers">Manufacturers</NavLink>
             </NavDropdown.Item>
             <NavDropdown.Item>
-<<<<<<< HEAD
               <NavLink className="dropdown-item" to="/manufacturer/form">Add new Manufacturer</NavLink>
-=======
-              <NavLink className="dropdown-item" to="/manufacturers/form">Add new Manufacturer</NavLink>
->>>>>>> 2b140dad5110a09920ee0c6ab2088b93d9966b93
             </NavDropdown.Item>
             <NavDropdown.Item >
               <NavLink className="dropdown-item " to="/models">Models</NavLink>

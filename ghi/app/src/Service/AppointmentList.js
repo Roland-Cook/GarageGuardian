@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 function AppointmentList() {
+  const refresh = () => window.location.reload(true)
 
     const [appointments,setAppointments] = useState([])
     const [automobiles,setAutomobiles] = useState([])
@@ -35,6 +36,7 @@ function AppointmentList() {
       }
       const response = await fetch(appUrl, fetchConfig);
       if (response.ok) {
+        refresh()
       } 
       else {
       }
@@ -47,7 +49,7 @@ function AppointmentList() {
     }
     const response = await fetch(appUrl, fetchConfig);
     if (response.ok) {
-
+      refresh()
     } else {
 
     }
@@ -71,22 +73,23 @@ function AppointmentList() {
               </tr>
             </thead>
             <tbody>
-            {appointments.map(app  => {
+            {appointments.filter(app  => app.status==="submitted").map(
+              appointment => {
               return (
                 <>
-                  <tr key={app.id}>
-                    <td>{app.vin}</td>
-                    <td>{app.customer}</td>
-                    <td>{app.date}</td>
-                    <td>{app.time}</td>
-                    <td>{app.reason}</td>
-                    <td>{app.technician}</td>
-                    <td className="vip">{inventory.includes(app.vin) ?  "yes" : "no"}</td>
+                  <tr key={appointment.id}>
+                    <td>{appointment.vin}</td>
+                    <td>{appointment.customer}</td>
+                    <td>{appointment.date}</td>
+                    <td>{appointment.time}</td>
+                    <td>{appointment.reason}</td>
+                    <td>{appointment.technician}</td>
+                    <td className="vip">{inventory.includes(appointment.vin) ?  "yes" : "no"}</td>
                     <div>
                       <td>
-                      <button className="btn btn-success" onClick={() => handleFinish(app.id)} >Finish</button>
+                      <button className="btn btn-success" onClick={() => handleFinish(appointment.id)} >Finish</button>
                       </td>
-                      <td><button className="btn btn-danger" onClick={() => handleCancel(app.id)}>Cancel</button>
+                      <td><button className="btn btn-danger" onClick={() => handleCancel(appointment.id)}>Cancel</button>
                       </td>
                     </div>
                   </tr>
