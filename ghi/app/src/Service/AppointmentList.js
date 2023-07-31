@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function AppointmentList() {
-  const refresh = () => window.location.reload(true)
+
 
     const [appointments,setAppointments] = useState([])
     const [automobiles,setAutomobiles] = useState([])
@@ -20,10 +20,9 @@ function AppointmentList() {
     }
   }
 
-
     useEffect(() => {
       loadAppointments();
-    }, []);
+    }, [appointments]);
 
     const inventory = automobiles.map(car => car.vin)
 
@@ -36,7 +35,7 @@ function AppointmentList() {
       }
       const response = await fetch(appUrl, fetchConfig);
       if (response.ok) {
-        refresh()
+      
       } 
       else {
       }
@@ -49,7 +48,6 @@ function AppointmentList() {
     }
     const response = await fetch(appUrl, fetchConfig);
     if (response.ok) {
-      refresh()
     } else {
 
     }
