@@ -3,6 +3,7 @@ import React, {useEffect, useState } from 'react';
 function ServiceHistory() {
     const [appointments, setAppointment] = useState([]);
     const [vin, setVin] = useState("")
+    const [submittedVin, setSubmittedVin] = useState("")
     const [automobiles,setAutomobiles] = useState([])
 
     
@@ -21,7 +22,7 @@ function ServiceHistory() {
 
     useEffect(() => {
         loadAppointments();
-    }, []);
+    }, [vin]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -39,8 +40,8 @@ function ServiceHistory() {
             <div className="input-group-prepend">
             <span className="input-group-text" id="inputGroup-sizing-default">Vin #</span>
             </div>
-            <input type="text" className="form-control" onChange={handleSubmit}aria-label="Default" aria-describedby="inputGroup-sizing-default"/>
-            <button className="btn btn-success" onClick={handleSubmit} >Show All</button>
+            <input type="text" onChange={handleSubmit} placeholder="Search by vin" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"/>
+            <button className="btn btn-success" >Show All</button>
             </div>
         </form>
 
