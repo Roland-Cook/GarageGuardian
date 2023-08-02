@@ -34,7 +34,7 @@ On the service side users can view and add technicians, and appointments. Users 
 ![alternate text](images/service/MakeAppointment.png)
 
 
-<h3> Users can view all appointments and the details of those appointments, users can also see if the vechicle exists in the inventory if it does it is marked as VIP. The status can also be changed to finshed or cancelled. </h3>
+<h3> All appointments and the details of those appointments can be viewed under the appointment list page, users can also see if the vechicle exists in the inventory if it does it is marked as VIP. The status can also be changed to finshed or cancelled. </h3>
 
 ![alternate text](images/service/AppointmentList.png)
 
@@ -62,7 +62,7 @@ On the service side users can view and add technicians, and appointments. Users 
 ![alternate text](images/sales/SalesPerson.png)
 ![alternate text](images/sales/SalesPeople.png)
 
-<h3> Users can add customers and see all customers that were added and any information saved about the customer.  </h3>
+<h3> Customers can be added under the add a customer page and users can see all customers that were added and the information saved about the customer.  </h3>
 
 ![alternate text](images/sales/Customer.png)
 ![alternate text](images/sales/Customers.png)
