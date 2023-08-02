@@ -29,17 +29,17 @@ On the service side users can view and add technicians, and appointments. Users 
 # Service Side
 
 
-<h2> Users can make appointments by filling out the form, users will have to make a technician to properly complete this form. </h2>
+<h3> Users can make appointments by filling out the form, users will have to make a technician to properly complete this form. </h3>
 
 ![alternate text](images/service/MakeAppointment.png)
 
 
-<h2> Users can view all appointments and the details of those appointments, users can also see if the vechicle exists in the inventory if it does it is marked as VIP. The status can also be changed to finshed or cancelled. </h2>
+<h3> Users can view all appointments and the details of those appointments, users can also see if the vechicle exists in the inventory if it does it is marked as VIP. The status can also be changed to finshed or cancelled. </h3>
 
 ![alternate text](images/service/AppointmentList.png)
 
 
-<h2> Users can add technicians and see the list of all technicians along with their employee information </h2>
+<h3> Users can add technicians and see the list of all technicians along with their employee information </h3>
 
 ![alternate text](images/service/Technician.png)
 
@@ -47,7 +47,7 @@ On the service side users can view and add technicians, and appointments. Users 
 
 
 
-<h2> After an appointment is made users can view the service history of all vechicles that had appointments at CarCar. </h2>
+<h3> After an appointment is made users can view the service history of all vechicles that had appointments at CarCar. </h3>
 
 ![alternate text](images/service/ServiceHistory.png)
 
@@ -57,23 +57,23 @@ On the service side users can view and add technicians, and appointments. Users 
 
 # Sales Side
 
-<h2> Users can add salespeople and see all the salespeople that have been added along with their employee information </h2>
+<h3> Users can add salespeople and see all the salespeople that have been added along with their employee information </h3>
 
 ![alternate text](images/sales/SalesPerson.png)
 ![alternate text](images/sales/SalesPeople.png)
 
-<h2> Users can add customers and see all customers that were added and any information saved about the customer.  </h2>
+<h3> Users can add customers and see all customers that were added and any information saved about the customer.  </h3>
 
 ![alternate text](images/sales/Customer.png)
 ![alternate text](images/sales/Customers.png)
 
-<h2> Users can create sales and see a list of all the sales that were made. </h2>
+<h3> Users can create sales and see a list of all the sales that were made. </h3>
 
 ![alternate text](images/sales/Sale.png)
 ![alternate text](images/sales/SaleHistory.png)
 
 
-<h2> Sales Person history is also stored allowing users to see all the sales of one particular sales person </h2>
+<h3> Sales Person history is also stored allowing users to see all the sales of one particular sales person </h3>
 
 ![alternate text](images/sales/SalesPersonHistory.png)
 
