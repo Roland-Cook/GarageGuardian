@@ -8,7 +8,7 @@ Team:
 
 ## Getting started
 
-CarCar was created using Django for the backend and react for the front end. This application is fully containerized using Docker. To run the app please utalize our docker compose file. While in your terminal navigate to this project in the parent directory please run the command "docker compose build" followed by "docker compose up". 
+CarCar was created using Django for the backend and react for the front end. This application is fully containerized using Docker. To run the application please utalize our docker compose file. While in your terminal navigate to this project and in the parent directory please run the command "docker compose build" followed by "docker compose up". 
 
 
 
