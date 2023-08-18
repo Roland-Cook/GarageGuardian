@@ -8,20 +8,22 @@ Team:
 
 ## Getting started
 
-CarCar was created using Django for the backend and react for the front end. This application is fully containerized using Docker. To run the application please utalize our docker compose file. While in your terminal navigate to this project and in the parent directory please run the command "docker compose build" followed by "docker compose up". 
-
+CarCar was created using Django for the backend and react for the front end. This application is fully containerized using Docker. To run the application please utilize our docker compose file. While in your terminal navigate to this project and in the parent directory please run the command "docker compose build" followed by "docker compose up".
 
 
 ## Application Details
 
-This application was built to encompass the sales side and the service side of a car dealership. 
 
-When using this application please note that the VIN number has a max length of 17 characters. 
+This application was built to encompass the sales side and the service side of a car dealership.
 
-On the sales side users can add and view sales people, customers and sale reciepts. Users can also see saleperson history to see which sales person is selling what vechicle.
 
-On the service side users can view and add technicians, and appointments. Users can also see a service history to see all vechicles that have been serviced.
+When using this application please note that the VIN number has a max length of 17 characters.
 
+
+On the sales side users can add and view sales people, customers and sale receipts. Users can also see salesperson history to see which sales person is selling what vehicle.
+
+
+On the service side users can view and add technicians, and appointments. Users can also see a service history to see all vehicles that have been serviced.
 
 
 
