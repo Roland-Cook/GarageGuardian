@@ -8,13 +8,13 @@ Team:
 
 ## Getting started
 
-CarCar was created using Django for the backend and react for the front end. This application is fully containerized using Docker. To run the application please utilize our docker compose file. While in your terminal navigate to this project and in the parent directory please run the command "docker compose build" followed by "docker compose up".
+GarageGuardian was created using Django for the backend and react for the front end. This application is fully containerized using Docker. To run the application please utilize our docker compose file. While in your terminal navigate to this project and in the parent directory please run the command "docker compose build" followed by "docker compose up".
 
 
 ## Application Details
 
 
-This application was built to encompass the sales side and the service side of a car dealership.
+This application was built to encompass the sales side and the service side of a dealership.
 
 
 When using this application please note that the VIN number has a max length of 17 characters.
@@ -49,7 +49,7 @@ On the service side users can view and add technicians, and appointments. Users 
 
 
 
-<h3> After an appointment is made users can view the service history of all vechicles that had appointments at CarCar. </h3>
+<h3> After an appointment is made users can view the service history of all vechicles that had appointments at GarageGuardian. </h3>
 
 ![alternate text](images/service/ServiceHistory.png)
 
