@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink } from "react-router-dom";
-import carcarmicrologo from "./Logos/carcarmicrologo.png"
+import GgLogo from "./Logos/GgLogo.jpg"
 
 function NewNav() {
   return (
@@ -11,7 +11,7 @@ function NewNav() {
       <Container className="bg-success">
         <Navbar.Brand>
           <NavLink className="navbar-brand" to="/">
-            <img src={carcarmicrologo} alt="CarCar" />
+            <img src={GgLogo} alt="CarCar" />
           </NavLink>
         </Navbar.Brand>
         <Nav className="me-auto">
